@@ -7,39 +7,53 @@ import {
   Input,
   Text,
   Button,
+  Select,
 } from '@chakra-ui/react';
-import { MdSearch, MdAddCircleOutline } from 'react-icons/md';
+import { MdSearch, MdList } from 'react-icons/md';
 
 const Listings = () => {
   return (
     <Flex pt={10} pb={5} px={5} height="100%" w="100%">
-      <Flex
-        px={5}
-        w={350}
-        flexDir="column"
-        overflow="scroll"
-        sx={{
-          '&::-webkit-scrollbar': {
-            display: 'none',
-          },
-          '&::-webkit-scrollbar-thumb': {
-            display: 'none',
-          },
-        }}
-      >
-        <SearchField />
-        <AddListing />
-      </Flex>
-      <Flex
-        ml={10}
-        p={10}
-        w="100%"
-        bg="whiteAlpha.900"
-        boxShadow="md"
-        borderRadius={10}
-      >
-        Listing Details
-      </Flex>
+      <HostListings />
+      <ListingDetails />
+    </Flex>
+  );
+};
+
+const ListingDetails = () => {
+  return (
+    <Flex
+      ml={10}
+      p={10}
+      w="100%"
+      bg="whiteAlpha.900"
+      boxShadow="md"
+      borderRadius={10}
+    >
+      Listing Details
+    </Flex>
+  );
+};
+
+const HostListings = () => {
+  return (
+    <Flex
+      px={5}
+      w={450}
+      flexDir="column"
+      overflow="scroll"
+      sx={{
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          display: 'none',
+        },
+      }}
+    >
+      <SearchField />
+      <AddListing />
+      <FilterListings />
     </Flex>
   );
 };
@@ -97,6 +111,40 @@ const AddListing = () => {
           +
         </Button>
       </Flex>
+    </Box>
+  );
+};
+
+const FilterListings = () => {
+  return (
+    <Box
+      d="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      mt={10}
+      px={1}
+    >
+      <Select
+        placeholder="All Listings"
+        w="130px"
+        bg="white"
+        borderWidth={2}
+        boxShadow="sm"
+      >
+        <option value="booked">Booked</option>
+        <option value="vacant">Vacant</option>
+        <option value="pending">Pending</option>
+      </Select>
+      <Button
+        bg="white"
+        p={2}
+        fontSize={20}
+        borderRadius={100}
+        borderWidth={2}
+        borderColor="gray.200"
+      >
+        <MdList />
+      </Button>
     </Box>
   );
 };
