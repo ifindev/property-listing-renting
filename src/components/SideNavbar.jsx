@@ -25,6 +25,7 @@ const SideNavbar = ({ menus, selectedMenu, handleSelectedMenu }) => {
         alignItems="center"
         spacing={10}
         w="100%"
+        mt={10}
         _hover={{
           cursor: 'pointer',
         }}
