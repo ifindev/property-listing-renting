@@ -28,7 +28,7 @@ const Listings = () => {
         }}
       >
         <SearchField />
-        <AddListings />
+        <AddListing />
       </Flex>
       <Flex
         ml={10}
@@ -74,7 +74,7 @@ const SearchField = () => {
   );
 };
 
-const AddListings = () => {
+const AddListing = () => {
   return (
     <Box mt={8}>
       <Flex justifyContent="space-between" alignItems="center" px={1}>
