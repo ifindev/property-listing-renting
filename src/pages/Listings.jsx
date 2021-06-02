@@ -28,28 +28,7 @@ const Listings = () => {
         }}
       >
         <SearchField />
-        <Box mt={8}>
-          <Flex justifyContent="space-between" alignItems="center" px={1}>
-            <Text fontSize="2xl" color="gray.700">
-              <strong>My Listings</strong>
-            </Text>
-            <Button
-              bg="purple.600"
-              color="white"
-              fontSize={25}
-              sx={{
-                '&:hover, &:active': {
-                  backgroundColor: 'purple.500',
-                },
-              }}
-              _focus={{
-                outline: 'none',
-              }}
-            >
-              +
-            </Button>
-          </Flex>
-        </Box>
+        <AddListings />
       </Flex>
       <Flex
         ml={10}
@@ -92,6 +71,33 @@ const SearchField = () => {
         />
       </InputGroup>
     </div>
+  );
+};
+
+const AddListings = () => {
+  return (
+    <Box mt={8}>
+      <Flex justifyContent="space-between" alignItems="center" px={1}>
+        <Text fontSize="2xl" color="gray.700">
+          <strong>My Listings</strong>
+        </Text>
+        <Button
+          bg="purple.600"
+          color="white"
+          fontSize={25}
+          sx={{
+            '&:hover, &:active': {
+              backgroundColor: 'purple.500',
+            },
+          }}
+          _focus={{
+            outline: 'none',
+          }}
+        >
+          +
+        </Button>
+      </Flex>
+    </Box>
   );
 };
 
