@@ -16,19 +16,23 @@ import {
 } from 'react-icons/md';
 
 function App() {
+  const [selectedMenu, setSelectedMenu] = useState('Dashboard');
+  const menus = ['Dashboard', 'Listings', 'Bookings', 'Tasks', 'Inbox'];
   return (
     <ChakraProvider theme={theme}>
       <Flex style={{ height: '100vh' }} bg="gray.50">
-        <SideNavbar />
+        <SideNavbar
+          menus={menus}
+          selectedMenu={selectedMenu}
+          handleSelectedMenu={setSelectedMenu}
+        />
         <Flex w="100%">Hello</Flex>
       </Flex>
     </ChakraProvider>
   );
 }
 
-const SideNavbar = () => {
-  const [selectedMenu, setSelectedMenu] = useState('Dashboard');
-  const menus = ['Dashboard', 'Listings', 'Bookings', 'Tasks', 'Inbox'];
+const SideNavbar = ({ menus, selectedMenu, handleSelectedMenu }) => {
   return (
     <Flex
       flexDir="column"
@@ -60,7 +64,7 @@ const SideNavbar = () => {
               color={`${selectedMenu === menu ? 'purple.600' : 'gray.500'}`}
               borderColor={`${selectedMenu === menu ? 'purple.600' : ''}`}
               borderLeft={`${selectedMenu === menu ? '4px' : ''}`}
-              onClick={() => setSelectedMenu(menu)}
+              onClick={() => handleSelectedMenu(menu)}
             >
               <Text fontSize={30}>
                 {menu === 'Dashboard' ? (
