@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Flex } from '@chakra-ui/react';
 import { SideNavbar } from '../components';
+import Listings from './Listings';
 
 const UserDashboard = () => {
   const [selectedMenu, setSelectedMenu] = useState('Listings');
@@ -18,7 +19,7 @@ const UserDashboard = () => {
             {selectedMenu === 'Dashboard' ? (
               <p>Dashboard</p>
             ) : selectedMenu === 'Listings' ? (
-              <p>Listings</p>
+              <Listings />
             ) : selectedMenu === 'Bookings' ? (
               <p>Bookings</p>
             ) : selectedMenu === 'Tasks' ? (
