@@ -4,7 +4,7 @@ import { Flex } from '@chakra-ui/react';
 const ListingDetails = () => {
   return (
     <Flex
-      ml={10}
+      ml={7}
       p={10}
       w="100%"
       bg="whiteAlpha.900"
