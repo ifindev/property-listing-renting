@@ -59,16 +59,16 @@ const ListingCards = ({
                 mt={2}
                 borderRadius="lg"
                 bg={`${
-                  listing.status === 'Booked'
+                  listing.status === 'booked'
                     ? 'green.100'
-                    : listing.status === 'Vacant'
+                    : listing.status === 'vacant'
                     ? 'red.100'
                     : 'yellow.100'
                 }`}
                 color={`${
-                  listing.status === 'Booked'
+                  listing.status === 'booked'
                     ? 'green.600'
-                    : listing.status === 'Vacant'
+                    : listing.status === 'vacant'
                     ? 'red.600'
                     : 'yellow.600'
                 }`}
