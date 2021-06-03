@@ -31,7 +31,7 @@ const HostListings = () => {
 
   useEffect(() => {
     if (listingsData.length !== 0) {
-      setSelectedListing(1);
+      setSelectedListing(listingsData[0].id);
     } else {
       setSelectedListing(null);
     }
