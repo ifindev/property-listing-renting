@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Flex, Box, Image, Text, Badge } from '@chakra-ui/react';
 
 import AddListing from './AddListing';
@@ -8,6 +8,7 @@ import SearchField from './SearchField';
 const listings = require('../../../data/listings');
 
 const HostListings = () => {
+  const [selectedListing, setSelectedListing] = useState(null);
   const listingsData = listings;
 
   return (
@@ -30,13 +31,21 @@ const HostListings = () => {
           },
         }}
       >
-        <ListingCards listingsData={listingsData} />
+        <ListingCards
+          listingsData={listingsData}
+          selectedListing={selectedListing}
+          handleSelectedListing={setSelectedListing}
+        />
       </Flex>
     </Flex>
   );
 };
 
-const ListingCards = ({ listingsData }) => {
+const ListingCards = ({
+  listingsData,
+  selectedListing,
+  handleSelectedListing,
+}) => {
   return (
     <Box px={2}>
       {listingsData.map(listing => {
