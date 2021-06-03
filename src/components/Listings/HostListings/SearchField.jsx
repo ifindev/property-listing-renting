@@ -21,10 +21,10 @@ const SearchField = () => {
           backgroundColor="white"
           borderWidth={2}
           _hover={{
-            borderColor: 'purple.300',
+            borderColor: 'blue.100',
           }}
           _focus={{
-            borderColor: 'purple.600',
+            borderColor: 'blue.400',
           }}
         />
       </InputGroup>
