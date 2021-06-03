@@ -33,6 +33,7 @@ const SideNavbar = ({ menus, selectedMenu, handleSelectedMenu }) => {
         {menus.map(menu => {
           return (
             <ListItem
+              key={menu}
               d="flex"
               flexDir="column"
               alignItems="center"
