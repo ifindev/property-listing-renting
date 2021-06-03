@@ -18,7 +18,7 @@ const FilterListings = () => {
         borderWidth={3}
         boxShadow="sm"
         _focus={{
-          borderColor: 'purple.600',
+          borderColor: 'blue.400',
         }}
       >
         <option value="booked">Booked</option>

@@ -39,8 +39,8 @@ const SideNavbar = ({ menus, selectedMenu, handleSelectedMenu }) => {
               alignItems="center"
               fontSize="xs"
               w="100%"
-              color={`${selectedMenu === menu ? 'purple.600' : 'gray.500'}`}
-              borderColor={`${selectedMenu === menu ? 'purple.600' : ''}`}
+              color={`${selectedMenu === menu ? 'blue.600' : 'gray.500'}`}
+              borderColor={`${selectedMenu === menu ? 'blue.600' : ''}`}
               borderLeft={`${selectedMenu === menu ? '4px' : ''}`}
               onClick={() => handleSelectedMenu(menu)}
             >

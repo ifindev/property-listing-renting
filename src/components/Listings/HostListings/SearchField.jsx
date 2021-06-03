@@ -37,6 +37,7 @@ const SearchField = () => {
           _focus={{
             borderColor: 'blue.400',
           }}
+          onChange={e => console.log(e.target.value)}
         />
       </InputGroup>
     </Box>

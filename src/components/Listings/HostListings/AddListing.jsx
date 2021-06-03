@@ -9,12 +9,12 @@ const AddListing = () => {
           <strong>My Listings</strong>
         </Text>
         <Button
-          bg="purple.600"
+          bg="blue.600"
           color="white"
           fontSize={25}
           sx={{
             '&:hover, &:active': {
-              backgroundColor: 'purple.500',
+              backgroundColor: 'blue.500',
             },
           }}
           _focus={{
