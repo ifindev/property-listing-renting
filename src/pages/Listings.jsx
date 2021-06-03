@@ -75,7 +75,7 @@ const SearchField = () => {
           placeholder="Search"
           boxShadow="sm"
           backgroundColor="white"
-          borderWidth={2}
+          borderWidth={3}
           _hover={{
             borderColor: 'purple.300',
           }}
@@ -128,8 +128,11 @@ const FilterListings = () => {
         placeholder="All Listings"
         w="130px"
         bg="white"
-        borderWidth={2}
+        borderWidth={3}
         boxShadow="sm"
+        _focus={{
+          borderColor: 'purple.600',
+        }}
       >
         <option value="booked">Booked</option>
         <option value="vacant">Vacant</option>
