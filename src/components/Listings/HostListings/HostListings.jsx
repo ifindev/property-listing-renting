@@ -10,7 +10,17 @@ const listings = require('../../../data/listings');
 
 const HostListings = () => {
   const [selectedListing, setSelectedListing] = useState(null);
+  const [occupancyFilter, setOccupancyFilter] = useState('');
+
   const listingsData = listings;
+
+  useEffect(() => {
+    setOccupancyFilter('all_listings');
+  }, []);
+
+  // useEffect(() => {
+  //   console.log(occupancyFilter);
+  // }, [occupancyFilter]);
 
   useEffect(() => {
     if (listingsData.length !== 0) {
@@ -25,7 +35,7 @@ const HostListings = () => {
       <Box>
         <SearchField />
         <AddListing />
-        <FilterListings />
+        <FilterListings setOccupancyFilter={setOccupancyFilter} />
       </Box>
       <Flex
         flexDir="column"
