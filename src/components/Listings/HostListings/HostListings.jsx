@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Flex, Box, Image, Text, Badge } from '@chakra-ui/react';
 
 import AddListing from './AddListing';
@@ -10,6 +10,14 @@ const listings = require('../../../data/listings');
 const HostListings = () => {
   const [selectedListing, setSelectedListing] = useState(null);
   const listingsData = listings;
+
+  useEffect(() => {
+    if (listingsData.length !== 0) {
+      setSelectedListing(1);
+    } else {
+      setSelectedListing(null);
+    }
+  }, [listingsData]);
 
   return (
     <Flex px={3} w={500} flexDir="column">
@@ -51,6 +59,7 @@ const ListingCards = ({
       {listingsData.map(listing => {
         return (
           <Flex
+            key={listing.id}
             p={0}
             mt={10}
             _first={{ marginTop: '0px' }}
@@ -58,9 +67,15 @@ const ListingCards = ({
             _hover={{
               cursor: 'pointer',
             }}
-            borderRadius="lg"
+            borderRadius="xl"
             bg="white"
             boxShadow="md"
+            onClick={() => {
+              selectedListing = listing.id;
+              handleSelectedListing(selectedListing);
+            }}
+            borderWidth={`${selectedListing === listing.id ? '2px' : '0px'}`}
+            borderColor={`${selectedListing === listing.id ? 'blue.400' : ''}`}
           >
             <Box w="250px">
               <Image
@@ -72,7 +87,13 @@ const ListingCards = ({
               />
             </Box>
             <Flex flexDir="column" w="100%" p={3}>
-              <Text fontWeight="bold" color="purple.800" fontSize={19}>
+              <Text
+                fontWeight="bold"
+                fontSize={19}
+                color={`${
+                  selectedListing === listing.id ? 'blue.500' : 'blue.700'
+                }`}
+              >
                 {listing.title}
               </Text>
               <Text color="gray.500" mt={2}>
