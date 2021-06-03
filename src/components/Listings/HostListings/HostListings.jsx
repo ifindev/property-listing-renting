@@ -11,16 +11,23 @@ const listings = require('../../../data/listings');
 const HostListings = () => {
   const [selectedListing, setSelectedListing] = useState(null);
   const [occupancyFilter, setOccupancyFilter] = useState('');
-
-  const listingsData = listings;
+  const [listingsData, setListingsData] = useState([]);
 
   useEffect(() => {
     setOccupancyFilter('all_listings');
   }, []);
 
-  // useEffect(() => {
-  //   console.log(occupancyFilter);
-  // }, [occupancyFilter]);
+  useEffect(() => {
+    if (occupancyFilter === 'all_listings') {
+      setListingsData(listings);
+    } else {
+      setListingsData(
+        listings.filter(listing => listing.status === occupancyFilter)
+      );
+    }
+
+    // eslint-disable-next-line
+  }, [occupancyFilter]);
 
   useEffect(() => {
     if (listingsData.length !== 0) {
