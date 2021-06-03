@@ -1,15 +1,23 @@
 import React from 'react';
-import { InputGroup, InputLeftElement, Input, Text } from '@chakra-ui/react';
+import {
+  Box,
+  InputGroup,
+  InputLeftElement,
+  Input,
+  Text,
+} from '@chakra-ui/react';
 import { MdSearch } from 'react-icons/md';
 
 const SearchField = () => {
   return (
-    <div>
+    <Box>
       <InputGroup>
         <InputLeftElement
+          mt={1}
+          ml={1}
           pointerEvents="none"
           children={
-            <Text fontSize={20} color="gray.400">
+            <Text fontSize={30} color="gray.300">
               <MdSearch />
             </Text>
           }
@@ -17,9 +25,12 @@ const SearchField = () => {
         <Input
           type="search"
           placeholder="Search"
+          pl={12}
           boxShadow="sm"
           backgroundColor="white"
+          color="gray.700"
           borderWidth={2}
+          size="lg"
           _hover={{
             borderColor: 'blue.100',
           }}
@@ -28,7 +39,7 @@ const SearchField = () => {
           }}
         />
       </InputGroup>
-    </div>
+    </Box>
   );
 };
 
