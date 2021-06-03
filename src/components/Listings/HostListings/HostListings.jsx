@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Box, Image, Text } from '@chakra-ui/react';
+import { Flex, Box, Image, Text, Badge } from '@chakra-ui/react';
 
 import AddListing from './AddListing';
 import FilterListings from './FilterListings';
@@ -42,7 +42,7 @@ const ListingCards = () => {
         'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
     },
     {
-      title: 'Minimalistic clean and white',
+      title: 'Minimalistic clean and white ',
       location: 'Manhattan, New York',
       status: 'Booked',
       image:
@@ -86,24 +86,55 @@ const ListingCards = () => {
             p={0}
             mt={10}
             _first={{ marginTop: '0px' }}
+            _last={{ marginBottom: '620px' }}
+            _hover={{
+              cursor: 'pointer',
+            }}
             borderRadius="lg"
             bg="white"
             boxShadow="md"
           >
-            <Box w="200px">
+            <Box w="250px">
               <Image
                 src={listing.image}
                 borderTopLeftRadius="lg"
                 borderBottomLeftRadius="lg"
-                boxSize="130px"
+                boxSize="150px"
                 objectFit="cover"
               />
             </Box>
-            <Box w="100%" p={2}>
-              <Text>{listing.title}</Text>
-              <Text>{listing.location}</Text>
-              <Text>{listing.status}</Text>
-            </Box>
+            <Flex flexDir="column" w="100%" p={3}>
+              <Text fontWeight="bold" color="purple.800" fontSize={19}>
+                {listing.title}
+              </Text>
+              <Text color="gray.500" mt={2}>
+                {listing.location}
+              </Text>
+              <Badge
+                d="flex"
+                justifyContent="center"
+                w="70px"
+                py={1}
+                mt={2}
+                borderRadius="lg"
+                bg={`${
+                  listing.status === 'Booked'
+                    ? 'green.100'
+                    : listing.status === 'Vacant'
+                    ? 'red.100'
+                    : 'yellow.100'
+                }`}
+                color={`${
+                  listing.status === 'Booked'
+                    ? 'green.600'
+                    : listing.status === 'Vacant'
+                    ? 'red.600'
+                    : 'yellow.600'
+                }`}
+              >
+                {listing.status}
+              </Badge>
+            </Flex>
           </Flex>
         );
       })}
